@@ -143,4 +143,6 @@ console.log(r().desc('API test').description); // 'API test'
 
 ## License
 
-MIT © 2015 [Mark Zhan](http://markzhan.com).
+Copyright © 2015 [Mark Zhan](http://markzhan.com).
+
+This project is available under the Apache license. See [LICENSE](https://github.com/markzhan/recoo/blob/master/LICENSE) for details.

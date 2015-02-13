@@ -1,6 +1,6 @@
 {
   "name": "recoo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Regex Chain & Helper - A new method for regular expressions.",
   "main": "index.js",
   "scripts": {
