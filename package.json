@@ -1,0 +1,35 @@
+{
+  "name": "recoo",
+  "version": "1.0.0",
+  "description": "Regex Chain & Helper - A new method for regular expressions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec",
+    "test-cov": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot",
+    "test-travis": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/markzhan/recoo.git"
+  },
+  "keywords": [
+    "re",
+    "regex",
+    "regexp",
+    "regular",
+    "expression",
+    "helper",
+    "chain"
+  ],
+  "author": "Mark Zhan <markzhann@qq.com> (markzhan.com)",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/markzhan/recoo/issues"
+  },
+  "homepage": "https://github.com/markzhan/recoo",
+  "devDependencies": {
+    "chai": "^2.0.0",
+    "istanbul": "^0.3.5",
+    "mocha": "^2.1.0"
+  }
+}
