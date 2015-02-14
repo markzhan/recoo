@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/markzhan/recoo.svg?branch=master)](https://travis-ci.org/markzhan/recoo)
+[![Build Status](https://api.travis-ci.org/markzhan/recoo.svg?branch=master)](https://travis-ci.org/markzhan/recoo)
 [![Coverage Status](https://coveralls.io/repos/markzhan/recoo/badge.svg)](https://coveralls.io/r/markzhan/recoo)
 [![NPM Downloads](https://img.shields.io/npm/dm/recoo.svg?style=flat)](https://www.npmjs.org/package/recoo)
 
