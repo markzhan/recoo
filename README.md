@@ -34,6 +34,8 @@ console.log(ipv4.is('192.168.1.1')); // true
 console.log(ipv4.contain('192.168.1.a 192.168.1.1'));  // true
 console.log(ipv4.match('192.168.1.a 192.68.1.1-8.8.8.8.'));  // [ '192.68.1.1', '8.8.8.8' ]
 
+is_ipv4 = ipv4.exact().go('g').regex;
+console.log(is_ipv4.test('192.168.1.1'));  // true
 ```
 ## API
 
