@@ -1,6 +1,6 @@
 {
   "name": "recoo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Regex Chain & Helper - A new method for regular expressions.",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,10 @@
     "regular",
     "expression",
     "helper",
-    "chain"
+    "chain",
+    "is",
+    "match",
+    "contain"
   ],
   "author": "Mark Zhan <markzhann@qq.com> (markzhan.com)",
   "license": "Apache 2.0",

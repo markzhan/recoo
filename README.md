@@ -33,9 +33,7 @@ console.log(ipv4.regex);  // (?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]
 console.log(ipv4.is('192.168.1.1')); // true
 console.log(ipv4.contain('192.168.1.a 192.168.1.1'));  // true
 console.log(ipv4.match('192.168.1.a 192.68.1.1-8.8.8.8.'));  // [ '192.68.1.1', '8.8.8.8' ]
-
-is_ipv4 = ipv4.exact().go('g').regex;
-console.log(is_ipv4.test('192.168.1.1'));  // true
+console.log(ipv4.e().test('192.168.1.1'));  // true
 ```
 ## API
 
@@ -115,13 +113,19 @@ console.log(r('\\d').go().regex); // Regexp: /\d/
 console.log(r('\\d').go('ig').regex); // Regexp: /\d/gi
 ```
 
-#### .e(str)
+#### .e([str])
+
+* @param { Mixed }
+
 ```js
 var r = require('recoo');
+console.log(r('\\w').e());  // /\w/
+console.log(r('\\w').e('ig'));  // /\w/gi
 console.log(r('\\w').e('abc').is()); // false
 console.log(r('\\w').e('abc').contain()); // true
 console.log(r('abc').e('abc').match()); // [ 'abc' ]
 console.log(r('\\d').e('abc').match()); // null
+console.log(r('\\d').e().test('8'));  // true
 ```
 
 #### .is([str])

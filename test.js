@@ -3,7 +3,7 @@ var r = require('./');
 var chai = require('chai'), assert = chai.assert;
 
 
-describe('recoo - regex chain & helper', function() {
+describe('recoo', function() {
 
   it('new()', function() {
     assert.equal(new r().regex, '');
@@ -122,10 +122,14 @@ describe('recoo - regex chain & helper', function() {
     assert.equal(r().a('abc').p(0,1,1).regex, '(?:abc){1,1}');
   });
   it('e()', function() {
-    assert.equal(r().e().eval, '');
-    assert.equal(r().e(0).eval, '');
-    assert.equal(r().e([]).eval, '');
+    assert.deepEqual(r().e(), new RegExp());
+    assert.deepEqual(r().e(0), new RegExp());
+    assert.deepEqual(r().e([]), new RegExp());
     assert.equal(r().e('ok').eval, 'ok');
+    assert.equal(r('\\d').e('9').is(), true);
+    assert.equal(r('\\d').e('99').is(), false);
+    assert.equal(r('[a-z]+').e('i').test('ABC1'), true);
+    assert.equal(r('[a-z]+').exact().e('i').test('ABC1'), false);
   });
   it('n()', function() {
     assert.deepEqual(r('\\d').n('+').match('99'), [ '99' ]);
