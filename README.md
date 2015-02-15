@@ -34,7 +34,23 @@ console.log(ipv4.is('192.168.1.1')); // true
 console.log(ipv4.contain('192.168.1.a 192.168.1.1'));  // true
 console.log(ipv4.match('192.168.1.a 192.68.1.1-8.8.8.8.'));  // [ '192.68.1.1', '8.8.8.8' ]
 console.log(ipv4.e().test('192.168.1.1'));  // true
+
+// check url
+var tlds = 'com|cn';
+var protocol = '(?:(?:(?:\\w)+:)?\/\/)?';
+var auth = '(?:\\S+(?::\\S*)?@)?';
+var host = '(?:xn--[a-z0-9\\-]{1,59}|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?){0,62}[a-z\\u00a1-\\uffff0-9]{1,63}))';
+var domain = '(?:\\.(?:xn--[a-z0-9\\-]{1,59}|(?:[a-z\\u00a1-\\uffff0-9]+-?){0,62}[a-z\\u00a1-\\uffff0-9]{1,63}))*';
+var tld = '(?:\\.(?:xn--[a-z0-9\\-]{1,59}|' + tlds + '+))';
+var port = '(?::\\d{2,5})?';
+var path = '(?:\/[^\\s]*)?';
+
+var url = r().a(ipv4).or().p('localhost').or().a(host).a(domain).a(tld)
+var url = r().a(protocol).a(auth).p(url).a(port).a(path)
+
+console.log(url.is('http://markzhan.com')); // true
 ```
+
 ## API
 
 #### .a(re, [m, n]) - `<...>[{m,n}]`

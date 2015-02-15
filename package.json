@@ -1,7 +1,7 @@
 {
   "name": "recoo",
-  "version": "1.0.3",
-  "description": "Regex Chain & Helper - A new method for regular expressions.",
+  "version": "1.0.5",
+  "description": "Regex Chain & Helper - A new method for regular expressions",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec",
@@ -21,8 +21,14 @@
     "helper",
     "chain",
     "is",
+    "test",
+    "find",
+    "parse",
+    "check",
     "match",
-    "contain"
+    "contain",
+    "pattern",
+    "validate"
   ],
   "author": "Mark Zhan <markzhann@qq.com> (markzhan.com)",
   "license": "Apache 2.0",
