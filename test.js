@@ -128,12 +128,14 @@ describe('recoo', function() {
     assert.equal(r().e('ok').eval, 'ok');
     assert.equal(r('\\d').e('9').is(), true);
     assert.equal(r('\\d').e('99').is(), false);
-    assert.equal(r('[a-z]+').e('i').test('ABC1'), true);
-    assert.equal(r('[a-z]+').exact().e('i').test('ABC1'), false);
   });
   it('n()', function() {
     assert.deepEqual(r('\\d').n('+').match('99'), [ '99' ]);
     assert.deepEqual(r('\\d').n().match('99'), [ '9','9' ]);
+  });
+  it('opt()', function() {
+    assert.equal(r('[a-z]+').opt('i').e().test('ABC1'), true);
+    assert.equal(r('[a-z]+').opt('i').exact().e().test('ABC1'), false);
   });
   it('exact()', function() {
     assert.equal(r().exact().regex, '(?:^$)');

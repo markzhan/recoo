@@ -6,9 +6,10 @@ var Recoo = function(regex) {
     return new Recoo(regex);
   }
 
-  this.description = '';
   this.regex = '';
+  this.opts = '';
   this.eval = '';
+  this.description = '';
 
   if (regex instanceof Recoo) {
     this.regex = regex.regex;
@@ -115,14 +116,10 @@ Recoo.prototype.n = function(m, n) {
 
 Recoo.prototype.e = function(str) {
   if (typeof str == 'string') {
-    if (/^[ig]+$/i.test(str)) {
-      return new RegExp(this.regex, str);
-    } else {
-      this.eval = str;
-      return this;
-    }
+    this.eval = str;
+    return this;
   } else {
-    return new RegExp(this.regex);
+    return new RegExp(this.regex, this.opts);
   }
 }
 
@@ -130,7 +127,16 @@ Recoo.prototype.go = function(opts) {
   if (typeof opts == 'string') {
     this.regex = new RegExp(this.regex, opts);
   } else {
-    this.regex = new RegExp(this.regex);
+    this.regex = new RegExp(this.regex, this.opts);
+  }
+  return this;
+}
+
+Recoo.prototype.opt = function(opts) {
+  if (/^[img]+$/i.test(opts)) {
+    this.opts = opts || '';
+  } else {
+    this.opts = opts || '';
   }
   return this;
 }
@@ -142,15 +148,15 @@ Recoo.prototype.exact = function() {
 
 Recoo.prototype.is = function(str) {
   str = typeof str == 'string' ? str : this.eval;
-  return new RegExp('(?:^' + this.regex + '$)').test(str);
+  return new RegExp('(?:^' + this.regex + '$)', this.opts).test(str);
 }
 
 Recoo.prototype.contain = function(str) {
   str = typeof str == 'string' ? str : this.eval;
-  return new RegExp(this.regex).test(str);
+  return new RegExp(this.regex, this.opts + 'g').test(str);
 }
 
 Recoo.prototype.match = function(str) {
   str = typeof str == 'string' ? str : this.eval;
-  return (str).match(new RegExp(this.regex, 'g'));
+  return (str).match(new RegExp(this.regex, this.opts + 'g'));
 }

@@ -5,7 +5,7 @@
 
 # recoo
 
-Regex Chain & Helper - A new method for regular expressions.
+Regular expression helper.
 
 
 ## Installation
@@ -127,6 +127,13 @@ var r = require('recoo');
 console.log(r('\\d').regex); // String: \d
 console.log(r('\\d').go().regex); // Regexp: /\d/
 console.log(r('\\d').go('ig').regex); // Regexp: /\d/gi
+```
+
+#### .opt(opts)
+```js
+var r = require('recoo');
+console.log(r('\\d').opt('ig').go().regex); // Regexp: /\d/gi
+console.log(r('\\d').opt('g').go('i').regex); // Regexp: /\d/i
 ```
 
 #### .e([str])
